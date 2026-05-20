@@ -1,0 +1,106 @@
+/**
+ * Design token CSS custom properties.
+ * Available globally on :root — used by host page and Service Portal.
+ * Components read these via var(--sp-*) in their scoped styles.
+ */
+:root {
+  /* Colors — Brand */
+  --sp-color-brand-50:  #eef2ff;
+  --sp-color-brand-100: #e0e7ff;
+  --sp-color-brand-500: #6366f1;
+  --sp-color-brand-600: #4f46e5;
+  --sp-color-brand-700: #4338ca;
+
+  /* Colors — Semantic */
+  --sp-color-success:  #22c55e;
+  --sp-color-danger:   #ef4444;
+  --sp-color-warning:  #f59e0b;
+  --sp-color-info:     #3b82f6;
+
+  /* Colors — Balance */
+  --sp-balance-owed:        #22c55e;
+  --sp-balance-owed-bg:     #dcfce7;
+  --sp-balance-owing:       #ef4444;
+  --sp-balance-owing-bg:    #fee2e2;
+  --sp-balance-settled:     #94a3b8;
+  --sp-balance-settled-bg:  #f1f5f9;
+
+  /* Backgrounds */
+  --sp-bg-app:      #f8fafc;
+  --sp-bg-surface:  #ffffff;
+  --sp-bg-raised:   #f1f5f9;
+  --sp-bg-overlay:  rgba(15, 23, 42, 0.5);
+
+  /* Text */
+  --sp-text-primary:  #0f172a;
+  --sp-text-secondary: #475569;
+  --sp-text-muted:    #94a3b8;
+  --sp-text-inverse:  #ffffff;
+
+  /* Border */
+  --sp-border:        #e2e8f0;
+  --sp-border-focus:  #6366f1;
+
+  /* Spacing (multiples of 4px base) */
+  --sp-space-1: 0.25rem;
+  --sp-space-2: 0.5rem;
+  --sp-space-3: 0.75rem;
+  --sp-space-4: 1rem;
+  --sp-space-5: 1.25rem;
+  --sp-space-6: 1.5rem;
+  --sp-space-8: 2rem;
+  --sp-space-10: 2.5rem;
+  --sp-space-12: 3rem;
+
+  /* Typography */
+  --sp-font-sans:  'Outfit', system-ui, sans-serif;
+  --sp-text-xs:   0.75rem;
+  --sp-text-sm:   0.875rem;
+  --sp-text-base: 1rem;
+  --sp-text-lg:   1.125rem;
+  --sp-text-xl:   1.25rem;
+  --sp-text-2xl:  1.5rem;
+  --sp-text-3xl:  1.875rem;
+  --sp-leading-tight:  1.25;
+  --sp-leading-normal: 1.5;
+  --sp-font-medium: 500;
+  --sp-font-semibold: 600;
+  --sp-font-bold: 700;
+
+  /* Radius */
+  --sp-radius-sm:   0.375rem;
+  --sp-radius-md:   0.5rem;
+  --sp-radius-lg:   0.75rem;
+  --sp-radius-xl:   1rem;
+  --sp-radius-full: 9999px;
+
+  /* Shadows */
+  --sp-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  --sp-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --sp-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --sp-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+  --sp-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.04);
+
+  /* Transitions */
+  --sp-transition-fast:   150ms ease;
+  --sp-transition-normal: 200ms ease;
+  --sp-transition-slow:   300ms ease;
+
+  /* Layout */
+  --sp-nav-width:    240px;
+  --sp-topbar-height: 56px;
+  --sp-panel-width:  420px;
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sp-bg-app:      #0f172a;
+    --sp-bg-surface:  #1e293b;
+    --sp-bg-raised:   #334155;
+    --sp-text-primary:  #f1f5f9;
+    --sp-text-secondary: #94a3b8;
+    --sp-text-muted:    #64748b;
+    --sp-border:        #334155;
+  }
+}
