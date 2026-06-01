@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { consume } from '@lit/context';
 import { tw } from '../../../styles/shared.styles';
-import { appContext, type AppState } from '../../../services/state/app.context';
+import { groupContext, type GroupStateType } from '../../../contexts/group.context';
 import { formatCurrency, balanceStatus } from '../../../utils/currency';
 import { formatRelativeTime } from '../../../utils/date';
 import '../../common/sp-card';
@@ -14,13 +14,13 @@ import '../../common/sp-empty-state';
 
 @customElement('sp-dashboard-view')
 export class SpDashboardView extends LitElement {
-  @consume({ context: appContext, subscribe: true })
-  @state() private _appState!: AppState;
+  @consume({ context: groupContext, subscribe: true })
+  @state() private _groupState!: GroupStateType;
 
   static styles = [tw, css`:host { display: block; }`];
 
   render() {
-    const state = this._appState;
+    const state = this._groupState;
     if (!state) return html``;
 
     const balance = state.dashboardBalance;
