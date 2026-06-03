@@ -148,6 +148,33 @@ export class ApiClientService {
     this.apiBase = `${this.baseUrl}/api/x_split/v1`;
   }
 
+  async discoverApiBase(): Promise<string> {
+    if (this.isMock()) {
+      return '';
+    }
+    if (typeof window !== 'undefined' && (window as any).g_ck) {
+      try {
+        const headers: Record<string, string> = { Accept: 'application/json' };
+        headers['X-UserToken'] = (window as any).g_ck;
+        const res = await fetch(
+          '/api/now/table/sys_ws_definition?sysparm_query=name=split_api&sysparm_fields=base_uri&sysparm_limit=1',
+          { headers, credentials: 'include' }
+        );
+        const data = await res.json();
+        if (data.result && data.result.length > 0 && data.result[0].base_uri) {
+          this.apiBase = data.result[0].base_uri;
+          return this.apiBase;
+        }
+      } catch (e) {
+        console.error('Failed to discover API base, falling back to scope default', e);
+      }
+      this.apiBase = '/api/x_snc_split_app_2/split_api';
+      return this.apiBase;
+    }
+    this.apiBase = `${this.baseUrl}/api/x_split/v1`;
+    return this.apiBase;
+  }
+
   isMock(): boolean {
     return !this.baseUrl || this.baseUrl === '/' || this.baseUrl === 'mock';
   }

@@ -85,6 +85,7 @@ export class SplitDashboard extends LitElement {
   private async initializeApp() {
     try {
       this.apiClient = new ApiClientService(this.baseUrl);
+      await this.apiClient.discoverApiBase();
       initializeServices(this.apiClient);
 
       this.initializeGroupState();

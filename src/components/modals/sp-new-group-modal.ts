@@ -99,17 +99,21 @@ export class NewGroupModal extends LitElement {
                 .value=${this.currency}
                 @change=${(e: any) => (this.currency = e.target.value)}
               >
-                <option>USD</option>
-                <option>EUR</option>
-                <option>GBP</option>
-                <option>INR</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="INR">INR</option>
               </select>
             </div>
             <div class="actions">
               <sp-button @click=${() => this.close()}>Cancel</sp-button>
-              <sp-button type="submit" ?disabled=${this.creating} variant="primary"
-                >Create</sp-button
+              <button
+                type="submit"
+                ?disabled=${this.creating}
+                class="inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 whitespace-nowrap bg-brand-600 text-white hover:bg-brand-700 focus:ring-brand-500 shadow-sm dark:bg-brand-600 dark:hover:bg-brand-700 px-4 py-2 text-sm cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
+                ${this.creating ? 'Creating...' : 'Create'}
+              </button>
             </div>
           </form>
         </div>
